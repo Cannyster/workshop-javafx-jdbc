@@ -28,7 +28,6 @@ import model.services.DepartmentService;
 
 public class DepartmentListController implements Initializable {
 
-	
 	private DepartmentService service;
 	
 	@FXML
@@ -57,30 +56,25 @@ public class DepartmentListController implements Initializable {
 	}
 	
 	@Override
-	public void initialize(URL uri, ResourceBundle rb) {
+	public void initialize(URL url, ResourceBundle rb) {
 		initializeNodes();
 	}
 
-	//Padrão do javaFX para inicializar o comportamento das colunas
 	private void initializeNodes() {
 		tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
 		tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
-
-		//obeter uma referencia para o Stage em que essa classe esta contida
-		Stage stage = (Stage)Main.getMainScene().getWindow();
 		
-		//Definição para a tableview acompanhe o tamanho da janela principal
+		Stage stage = (Stage) Main.getMainScene().getWindow();
 		tableViewDepartment.prefHeightProperty().bind(stage.heightProperty());
 	}
 	
 	public void updateTableView() {
-		if(service == null) {
+		if (service == null) {
 			throw new IllegalStateException("Service was null");
 		}
 		List<Department> list = service.findAll();
 		obsList = FXCollections.observableArrayList(list);
 		tableViewDepartment.setItems(obsList);
-		
 	}
 	
 	private void createDialogForm(Department obj, String absoluteName, Stage parentStage) {
@@ -90,21 +84,19 @@ public class DepartmentListController implements Initializable {
 			
 			DepartmentFormController controller = loader.getController();
 			controller.setDepartment(obj);
+			controller.setDepartmentService(new DepartmentService());
 			controller.updateFormData();
 			
-			
 			Stage dialogStage = new Stage();
-			dialogStage.setTitle("Enter Department Data");
+			dialogStage.setTitle("Enter Department data");
 			dialogStage.setScene(new Scene(pane));
 			dialogStage.setResizable(false);
 			dialogStage.initOwner(parentStage);
-			//Janela modal te impede de mexer nas janelas que estão atras dela
 			dialogStage.initModality(Modality.WINDOW_MODAL);
 			dialogStage.showAndWait();
-			
-		}catch(IOException e ) {
+		}
+		catch (IOException e) {
 			Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), AlertType.ERROR);
 		}
 	}
-
 }
