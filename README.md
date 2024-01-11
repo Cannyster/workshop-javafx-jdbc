@@ -1,18 +1,13 @@
-# Sistema de Supermercado
+# Sistema Controle
 
 ![](demo/demo_1.png)
 
 Sistema experimental desenvolvido para prática de aplicação de Design Patterns. O sistema realiza a recuperação, cadastro, alteração e exclusão de Vendedores e Departamentos.
-=======
-Sistema experimental desenvolvido para prática de aplicação de Design Patterns. O sistema realiza o recuperação, cadastro, alteração, exclusão de Vendedores e Departamentos.
->>>>>>> 7da698cd585924ddbd4fae7b17e103861278ee5f
-=======
-Sistema experimental desenvolvido para prática de aplicação de Design Patterns. O sistema realiza o recuperação, cadastro, alteração, exclusão de Vendedores e Departamentos.
->>>>>>> 7da698cd585924ddbd4fae7b17e103861278ee5f
+
 
 Neste arquivo você encontrará imagens demonstrativas e também tecnologias e conceitos utilizados nesta aplicação.
 
-#### Capturas de tela
+### Capturas de tela
 
 [Demo #1](demo/demo_1.png) - [Demo #2](demo/demo_2.png) - [Demo #3](demo/demo_3.png) - [Demo #4](demo/demo_4.png) - [Demo #5](demo/demo_5.png)
 
